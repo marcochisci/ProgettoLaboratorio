@@ -3,4 +3,4 @@ project(ProgettoLaboratorio)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(ProgettoLaboratorio main.cpp)
+add_executable(ProgettoLaboratorio main.cpp Register.cpp Register.h Activity.cpp Activity.h)
