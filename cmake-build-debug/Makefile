@@ -39,10 +39,10 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /snap/clion/70/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /snap/clion/73/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /snap/clion/70/bin/cmake/linux/bin/cmake -E remove -f
+RM = /snap/clion/73/bin/cmake/linux/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -59,7 +59,7 @@ CMAKE_BINARY_DIR = /home/marco/Scrivania/ProgettiClionProgrammazione/ProgettoLab
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/snap/clion/70/bin/cmake/linux/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/snap/clion/73/bin/cmake/linux/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -70,7 +70,7 @@ rebuild_cache/fast: rebuild_cache
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/snap/clion/70/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	/snap/clion/73/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -111,17 +111,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named ProgettoLaboratorio
+# Target rules for targets named FirstC
 
 # Build rule for target.
-ProgettoLaboratorio: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 ProgettoLaboratorio
-.PHONY : ProgettoLaboratorio
+FirstC: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 FirstC
+.PHONY : FirstC
 
 # fast build rule for target.
-ProgettoLaboratorio/fast:
-	$(MAKE) -f CMakeFiles/ProgettoLaboratorio.dir/build.make CMakeFiles/ProgettoLaboratorio.dir/build
-.PHONY : ProgettoLaboratorio/fast
+FirstC/fast:
+	$(MAKE) -f CMakeFiles/FirstC.dir/build.make CMakeFiles/FirstC.dir/build
+.PHONY : FirstC/fast
 
 Activity.o: Activity.cpp.o
 
@@ -129,7 +129,7 @@ Activity.o: Activity.cpp.o
 
 # target to build an object file
 Activity.cpp.o:
-	$(MAKE) -f CMakeFiles/ProgettoLaboratorio.dir/build.make CMakeFiles/ProgettoLaboratorio.dir/Activity.cpp.o
+	$(MAKE) -f CMakeFiles/FirstC.dir/build.make CMakeFiles/FirstC.dir/Activity.cpp.o
 .PHONY : Activity.cpp.o
 
 Activity.i: Activity.cpp.i
@@ -138,7 +138,7 @@ Activity.i: Activity.cpp.i
 
 # target to preprocess a source file
 Activity.cpp.i:
-	$(MAKE) -f CMakeFiles/ProgettoLaboratorio.dir/build.make CMakeFiles/ProgettoLaboratorio.dir/Activity.cpp.i
+	$(MAKE) -f CMakeFiles/FirstC.dir/build.make CMakeFiles/FirstC.dir/Activity.cpp.i
 .PHONY : Activity.cpp.i
 
 Activity.s: Activity.cpp.s
@@ -147,7 +147,7 @@ Activity.s: Activity.cpp.s
 
 # target to generate assembly for a file
 Activity.cpp.s:
-	$(MAKE) -f CMakeFiles/ProgettoLaboratorio.dir/build.make CMakeFiles/ProgettoLaboratorio.dir/Activity.cpp.s
+	$(MAKE) -f CMakeFiles/FirstC.dir/build.make CMakeFiles/FirstC.dir/Activity.cpp.s
 .PHONY : Activity.cpp.s
 
 Register.o: Register.cpp.o
@@ -156,7 +156,7 @@ Register.o: Register.cpp.o
 
 # target to build an object file
 Register.cpp.o:
-	$(MAKE) -f CMakeFiles/ProgettoLaboratorio.dir/build.make CMakeFiles/ProgettoLaboratorio.dir/Register.cpp.o
+	$(MAKE) -f CMakeFiles/FirstC.dir/build.make CMakeFiles/FirstC.dir/Register.cpp.o
 .PHONY : Register.cpp.o
 
 Register.i: Register.cpp.i
@@ -165,7 +165,7 @@ Register.i: Register.cpp.i
 
 # target to preprocess a source file
 Register.cpp.i:
-	$(MAKE) -f CMakeFiles/ProgettoLaboratorio.dir/build.make CMakeFiles/ProgettoLaboratorio.dir/Register.cpp.i
+	$(MAKE) -f CMakeFiles/FirstC.dir/build.make CMakeFiles/FirstC.dir/Register.cpp.i
 .PHONY : Register.cpp.i
 
 Register.s: Register.cpp.s
@@ -174,7 +174,7 @@ Register.s: Register.cpp.s
 
 # target to generate assembly for a file
 Register.cpp.s:
-	$(MAKE) -f CMakeFiles/ProgettoLaboratorio.dir/build.make CMakeFiles/ProgettoLaboratorio.dir/Register.cpp.s
+	$(MAKE) -f CMakeFiles/FirstC.dir/build.make CMakeFiles/FirstC.dir/Register.cpp.s
 .PHONY : Register.cpp.s
 
 main.o: main.cpp.o
@@ -183,7 +183,7 @@ main.o: main.cpp.o
 
 # target to build an object file
 main.cpp.o:
-	$(MAKE) -f CMakeFiles/ProgettoLaboratorio.dir/build.make CMakeFiles/ProgettoLaboratorio.dir/main.cpp.o
+	$(MAKE) -f CMakeFiles/FirstC.dir/build.make CMakeFiles/FirstC.dir/main.cpp.o
 .PHONY : main.cpp.o
 
 main.i: main.cpp.i
@@ -192,7 +192,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	$(MAKE) -f CMakeFiles/ProgettoLaboratorio.dir/build.make CMakeFiles/ProgettoLaboratorio.dir/main.cpp.i
+	$(MAKE) -f CMakeFiles/FirstC.dir/build.make CMakeFiles/FirstC.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -201,7 +201,7 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	$(MAKE) -f CMakeFiles/ProgettoLaboratorio.dir/build.make CMakeFiles/ProgettoLaboratorio.dir/main.cpp.s
+	$(MAKE) -f CMakeFiles/FirstC.dir/build.make CMakeFiles/FirstC.dir/main.cpp.s
 .PHONY : main.cpp.s
 
 # Help Target
@@ -211,7 +211,7 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
-	@echo "... ProgettoLaboratorio"
+	@echo "... FirstC"
 	@echo "... edit_cache"
 	@echo "... Activity.o"
 	@echo "... Activity.i"

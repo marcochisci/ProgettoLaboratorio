@@ -15,20 +15,16 @@ struct Time {
 
 class Activity {
 public:
-    Activity(std::string description, Time start, Time end) {
+    Activity(std::string description, Time start, Time end, int d, std::string m, int y) {
         activityDescription = std::move(description);
-        checkCorrectTime(start);
-        checkCorrectTime(end);
         startTime = start;
         endTime = end;
+        day = d;
+        month = std::move(m);
+        year = y;
     }
 
-    Time &checkCorrectTime(Time &wrongTime) {
-        if (wrongTime.hour > 24)
-            wrongTime.hour = wrongTime.hour % 24;
-        if (wrongTime.minute > 60)
-            wrongTime.minute = wrongTime.minute % 60;
-    }
+    bool checkCorrectTime(Activity &wrongTime);
 
     const std::string &getActivityDescription() const {
         return activityDescription;
@@ -38,11 +34,11 @@ public:
         Activity::activityDescription = activityDescription;
     }
 
-    const Time &getStarTime() const {
+    const Time &getStartTime() const {
         return startTime;
     }
 
-    void setStarTime(const Time &startTime) {
+    void setStartTime(const Time &startTime) {
         Activity::startTime = startTime;
     }
 
@@ -54,11 +50,38 @@ public:
         Activity::endTime = endTime;
     }
 
+    unsigned int getDay() const {
+        return day;
+    }
+
+    void setDay(unsigned int day) {
+        Activity::day = day;
+    }
+
+    const std::string &getMonth() const {
+        return month;
+    }
+
+    void setMonth(const std::string &month) {
+        Activity::month = month;
+    }
+
+    unsigned int getYear() const {
+        return year;
+    }
+
+    void setYear(unsigned int year) {
+        Activity::year = year;
+    }
+
 private:
 
     std::string activityDescription;
     Time startTime;
     Time endTime;
+    unsigned int day;
+    std::string month;
+    unsigned int year;
 };
 
 
