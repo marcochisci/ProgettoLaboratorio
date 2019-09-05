@@ -42,7 +42,7 @@ void Register::onAddButtonClicked(wxCommandEvent &event) {
     std::string monthString = std::string(month->GetValue());
     auto tmpActivity = new Activity(descriptionString, *tmpStartTime, *tmpEndTime, day->GetValue(), monthString,
                                     year->GetValue());
-    if (tmpActivity->checkCorrectTime(*tmpActivity)) {
+    if (tmpActivity->checkCorrectTime()) {
         std::string dayString = std::to_string(day->GetValue());
         std::string yearString = std::to_string(year->GetValue());
         std::string dateString = dayString + " " + monthString + " " + yearString;

@@ -8,7 +8,11 @@ set(wxWidgets_CONFIGURATION mswu)
 find_package(wxWidgets COMPONENTS core base REQUIRED)
 include(${wxWidgets_USE_FILE})
 
-set(SOURCE_FILES main.cpp Register.cpp Register.h Activity.cpp Activity.h)
-add_executable(FirstC ${SOURCE_FILES})
+set(SOURCE_FILES Register.cpp Register.h Activity.cpp Activity.h)
+add_executable(FirstC main.cpp)
+add_library(core ${SOURCE_FILES})
+target_link_libraries(FirstC core)
 
 target_link_libraries(FirstC ${wxWidgets_LIBRARIES})
+
+add_subdirectory(Google_tests)

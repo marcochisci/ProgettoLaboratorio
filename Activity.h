@@ -24,7 +24,7 @@ public:
         year = y;
     }
 
-    bool checkCorrectTime(Activity &wrongTime);
+    bool checkCorrectTime() const;
 
     const std::string &getActivityDescription() const {
         return activityDescription;
