@@ -51,17 +51,23 @@ void Register::onAddButtonClicked(wxCommandEvent &event) {
         std::string minuteEndString = std::to_string(tmpEndTime->minute);
         std::string hourEndString = std::to_string(tmpEndTime->hour);
         std::string activityString =
-                descriptionString + " from: " + hourStarString + ":" + minuteStarString + " to " + hourEndString + ":" +
+                descriptionString + " from: " + hourStarString + ":" + minuteStarString + " to " + hourEndString +
+                ":" +
                 minuteEndString;
         isAlreadyThere = false;
         bool onlyOnce = true;
-        for (auto itr = activities.begin(); itr != activities.end(); itr++) {
-            if ((*itr)->getDay() == tmpActivity->getDay() && (*itr)->getMonth() == tmpActivity->getMonth() &&
-                (*itr)->getYear() == tmpActivity->getYear() && onlyOnce) {
-                auto mapItr = mapBoxes.find(dateString);
-                mapItr->second->AppendString(activityString);
+        for (auto itr = activitiesRegister.getActivities().begin();
+             itr != activitiesRegister.getActivities().end(); itr++) {
+            if ((*itr).getDay() == tmpActivity->getDay() && (*itr).getMonth() == tmpActivity->getMonth() &&
+                (*itr).getYear() == tmpActivity->getYear() && onlyOnce) {
                 isAlreadyThere = true;
                 onlyOnce = false;
+                if (activitiesRegister.checkFreeTime(*tmpActivity)) {
+                    auto mapItr = mapBoxes.find(dateString);
+                    mapItr->second->AppendString(activityString);
+                } else {
+                    wxMessageBox("That time is already occupied");
+                }
             }
         }
         if (!isAlreadyThere) {
@@ -75,7 +81,7 @@ void Register::onAddButtonClicked(wxCommandEvent &event) {
             tmpList->AppendString(activityString);
             mapBoxes[dateString] = tmpList;
         }
-        activities.push_front(tmpActivity);
+        activitiesRegister.insertNewActivity(*tmpActivity);
 
     } else {
         wxMessageBox("Impossible time input");

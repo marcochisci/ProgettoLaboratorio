@@ -20,13 +20,14 @@
 #include <map>
 #include <wx/spinctrl.h>
 #include "Activity.h"
+#include "ActivitiesRegister.h"
 
 class Register : public wxFrame {
 public:
     Register();
 
 private:
-    std::list<Activity *> activities;
+    ActivitiesRegister activitiesRegister;
     std::map<std::string, wxListBox *> mapBoxes;
     wxButton *buttonAddEvent = nullptr;
     wxStaticText *dayText = nullptr;

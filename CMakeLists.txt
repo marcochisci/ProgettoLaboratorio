@@ -1,18 +1,8 @@
-cmake_minimum_required(VERSION 3.7)
-project(wxWidgetTest)
+project(Google_tests)
 
-set(CMAKE_CXX_STANDARD 11)
+add_subdirectory(lib)
+include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
 
-set(wxWidgets_ROOT_DIR </usr/include/wx-3.0-unofficial>)
-set(wxWidgets_CONFIGURATION mswu)
-find_package(wxWidgets COMPONENTS core base REQUIRED)
-include(${wxWidgets_USE_FILE})
-
-set(SOURCE_FILES Register.cpp Register.h Activity.cpp Activity.h)
-add_executable(FirstC main.cpp)
-add_library(core ${SOURCE_FILES})
-target_link_libraries(FirstC core)
-
-target_link_libraries(FirstC ${wxWidgets_LIBRARIES})
-
-add_subdirectory(Google_tests)
+set(TEST_SOURCE_FILES TestCorrectTime.cpp TestCorrectActivity.cpp)
+add_executable(Google_Tests_run ${TEST_SOURCE_FILES})
+target_link_libraries(Google_Tests_run gtest gtest_main core)

@@ -6,9 +6,11 @@
 
 bool Activity::checkCorrectTime() const {
     bool correctTime = true;
-    if (this->startTime.hour > 24 || this->endTime.hour > 24)
+    if (endTime <= startTime)
         correctTime = false;
-    if (this->startTime.minute > 60 || this->endTime.minute > 60)
+    if (this->startTime.hour > 23 || this->endTime.hour > 23)
+        correctTime = false;
+    if (this->startTime.minute > 59 || this->endTime.minute > 59)
         correctTime = false;
     if (this->day > 31 || this->day <= 0)
         correctTime = false;
@@ -23,13 +25,13 @@ bool Activity::checkCorrectTime() const {
         (this->year % 4 == 0))
         correctTime = false;
     if (this->month != "January" && this->month != "january" && this->month != "February" &&
-        this->month != "february" && this->month != "March" && this->month != "march" &&
+            this->month != "february" && this->month != "March" && this->month != "march" &&
         this->month != "April" && this->month != "april" && this->month != "May" &&
         this->month != "may" && this->month != "June" && this->month != "june" &&
         this->month != "July" && this->month != "july" && this->month != "August" &&
         this->month != "august" && this->month != "September" && this->month != "september" &&
         this->month != "October" && this->month != "october" && this->month != "November" &&
-        this->month != "november" && this->month != "Dicember" && this->month != "dicember")
+            this->month != "november" && this->month != "December" && this->month != "december")
         correctTime = false;
     return correctTime;
 }

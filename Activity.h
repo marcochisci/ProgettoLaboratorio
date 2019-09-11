@@ -11,6 +11,15 @@
 struct Time {
     unsigned int hour;
     unsigned int minute;
+
+    bool operator<=(const Time &end) const {
+        bool isLower = false;
+        if (this->hour < end.hour)
+            isLower = true;
+        if (this->hour == end.hour && this->minute <= end.minute)
+            isLower = true;
+        return isLower;
+    }
 };
 
 class Activity {
@@ -23,6 +32,7 @@ public:
         month = std::move(m);
         year = y;
     }
+
 
     bool checkCorrectTime() const;
 
